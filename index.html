@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>***********</title>
+    <title>牛登録</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
@@ -11,35 +11,94 @@
 <body>
 
     <form class="w-75 mx-auto">
-        <p class="mt-3">分娩日</p>
+        <p class="mt-3">登録日</p>
         <div>
             <input type="date" class="form-control w-100 mt-1" name="day" placeholder="" required>
 
         </div>
-        <p class="mt-3">牛の番号</p>
+        <p class="mt-3">耳標10桁</p>
         <div>
             <input class="form-control w-100 mt-1" name="no" required>
         </div>
-        <p class="mt-3">区分</p>
+        <p class="mt-3">入力用の管理番号もしくは名称(耳標4桁・牧場管理番号など重複しないもの)</p>
+        <div>
+            <input class="form-control w-100 mt-1" name="no2" required>
+        <p class="mt-3">性別</p>
         <div>
             <select class="form-control w-100 mt-1" name="kubun" required>
-                <option value="通常授精">通常授精</option>
-                <option value="採卵授精">採卵授精</option>
-                <option value="体内受精卵移植">体内受精卵移植</option>
-                <option value="体外受精卵移植">体外受精卵移植</option>
-             
+                <option value="♀">♀</option>
+                <option value="♂">♂</option>
+                
             </select>
-        <p class="mt-3">種雄牛名</p>
+  　　　</div>
+ <br>
+<table style="margin-left : auto ; margin-right : auto ;">
+  <tbody>
+    <tr>
+      <th>元号</th>
+      <th>西暦</th>
+            </tr>
+    <tr>
+      <td>平成20年</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <td>平成25年</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <td>平成30年</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <td>平成31年(～4月30日)<br>令和元年(5月1日～)</td>
+      <td>2019</td>
+    </tr>
+    <tr>
+      <td>令和2年</td>
+      <td>2020</td>
+    </tr>
+  </tbody>
+</table>
+        <p class="mt-3">生年月日</p>
+        <div>
+            <input type="date" class="form-control w-100 mt-1" name="day2" placeholder="" required>
+
+        </div>            
+            
+         <p class="mt-3">品種</p>
+        <div>
+            <select class="form-control w-100 mt-1" name="kubun0" required>
+                <option value="黒毛和種">黒毛和種</option>
+                <option value="ホルスタイン種">ホルスタイン種</option>
+                <option value="褐毛和種">褐毛和種</option>
+                <option value="日本短角種">日本短角種</option>
+                <option value="無角和種">無角和種</option>
+                <option value="ジャージー種">ジャージー種</option>
+                <option value="ブラウンスイス種">ブラウンスイス種</option>
+                <option value="ガーンジー種">ガーンジー種</option>
+                <option value="エアシャー種">エアシャー種</option>
+                 <option value="黒毛和種×乳用種">黒毛和種×乳用種</option>
+                <option value="黒毛和種×褐毛和種">黒毛和種×褐毛和種</option>
+                <option value="和牛間交雑種">和牛間交雑種</option>
+                
+            </select>           
+            <p class="mt-3">1代祖(父)</p>
+        <div>
+            <input class="form-control w-100 mt-1" name="kubun1" required>
+        </div>
+            <p class="mt-3">2代祖(母の父)</p>
         <div>
             <input class="form-control w-100 mt-1" name="kubun2" required>
         </div>
-        <p class="mt-3">授精師名</p>
+        　　<p class="mt-3">3代祖(祖母の父)</p>
         <div>
             <input class="form-control w-100 mt-1" name="kubun3" required>
-        <p class="mt-3">授精師名</p>
+         <div>    
+       　　　 <p class="mt-3">メモ１</p>
         <div>
             <input class="form-control w-100 mt-1" name="kubun4" required>
-        <p class="mt-3">授精師名</p>
+        <p class="mt-3">メモ2</p>
         <div>
             <input class="form-control w-100 mt-1" name="kubun5" required>
 
@@ -60,7 +119,7 @@
     <script>
 
         $(document).ready(function () {
-            const liffId = "**************************************";
+            const liffId = "1656831272-P7gllDwm";
             initializeLiff(liffId);
         })
 
@@ -90,14 +149,19 @@
 
         $(function () {
             $('form').submit(function () {
+                
                 const day    = $('input[name="day"]').val();
+                const day2   = $('input[name="day2]').val();
                 const no = $('input[name="no"]').val();
+                const no2= $('input[name="no2]').val();
+                const kubun0 = $('select[name="kubun0]').val();
                 const kubun  = $('select[name="kubun"]').val();
+                const kubun1 = $('input[name="kubun1]').val();
                 const kubun2  = $('input[name="kubun2"]').val();
                 const kubun3 = $('input[name="kubun3"]').val();
                 const kubun4 = $('input[name="kubun4"]').val();
                 const kubun5 = $('input[name="kubun5"]').val();
-                const msg = `********\n${day}\n${no}\n${kubun}\n${kubun2}\n${kubun3}\n${kubun4}\n${kubun5}`;
+                const msg = `牛登録\n${day}\n${no}\n${no2}\n${kubun}\n${day2}\n${kubun0}\n${kubun1}\n${kubun2}\n${kubun3}\n${kubun4}\n${kubun5}`;
                 sendText(msg);
                 return false;
             });
